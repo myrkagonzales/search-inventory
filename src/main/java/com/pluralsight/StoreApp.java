@@ -9,7 +9,7 @@ public class StoreApp {
         // array list to retrieve the inventory list
         ArrayList<Product> inventory = getInventory();
 
-        System.out.println("We carry the following products:");
+        System.out.println("Following items are in stock:");
         System.out.println("----------------------------------");
 
         // loop through the list using standard indexing
@@ -28,7 +28,7 @@ public class StoreApp {
     private static ArrayList<Product> getInventory() {
         ArrayList<Product> inventory = new ArrayList<>();
 
-        // Adding at least 5 sample products
+        // Adding at least 5 products
         inventory.add(new Product(1234,"Kindle Book 6th edition", 125.49));
         inventory.add(new Product(4587, "Attack on Titan vol. 25", 11.35));
         inventory.add(new Product(7894, "Dracula Deluxe Edition", 45.87));
