@@ -8,12 +8,12 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class StoreAppHash {
+public class StoreAppHashSpanish {
 
 
 
         // declare hashmap where the key is the integer (ID) and value is a product object
-        public static HashMap<Integer, Product> inventory = new HashMap<>();
+        public static HashMap<Integer, Producto> inventory = new HashMap<>();
 
     public static void main(String[] args) {
 
@@ -30,13 +30,13 @@ public class StoreAppHash {
             scanner.nextLine(); // clear the scanner buffer
 
             // instant lookup using the hashmap get() method with the ID key
-            Product matchedProduct = inventory.get(id);
+            Producto matchedProducto = inventory.get(id);
 
-            if (matchedProduct == null) {
+            if (matchedProducto == null) {
                 System.out.println("No tenemos ese producto en el inventario. ");
             } else {
                 System.out.printf("¡Llevamos %s y el precio es $%.2f%n",
-                        matchedProduct.getNombre(), matchedProduct.getPrecio());
+                        matchedProducto.getNombre(), matchedProducto.getPrecio());
             }
             // ask if they want to search again
             System.out.print("\n¿Deseas buscar otro producto? (si/no): ");
@@ -58,7 +58,7 @@ public class StoreAppHash {
                 double precio = Double.parseDouble(tokens[2].trim());
 
                 // put the item into the hashmap using aid as the key and a new product as the value
-                inventory.put(id, new Product(id, nombre, precio));
+                inventory.put(id, new Producto(id, nombre, precio));
             }
 
         } catch (IOException e) {

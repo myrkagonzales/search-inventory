@@ -10,14 +10,14 @@ import java.util.regex.Pattern;
 import java.util.ArrayList;
 
 
-public class StoreApp {
+public class StoreAppSpanish {
 
     public static void main(String[] args) {
         // array list to retrieve the inventory list
-        ArrayList<Product> inventory = getInventory();
+        ArrayList<Producto> inventory = getInventory();
 
         // sort products alphabetically by name before displaying options
-        Collections.sort(inventory, Comparator.comparing(Product::getNombre));
+        Collections.sort(inventory, Comparator.comparing(Producto::getNombre));
 
         // generate scanner
         Scanner scanner = new Scanner(System.in);
@@ -55,8 +55,8 @@ public class StoreApp {
     }
 
        // read inventory.csv line by line into an array list
-       private static ArrayList<Product> getInventory() {
-           ArrayList<Product> inventory = new ArrayList<>();
+       private static ArrayList<Producto> getInventory() {
+           ArrayList<Producto> inventory = new ArrayList<>();
 
            // try with resources automatically closes the bufferedreader when done
            try (BufferedReader bufReader = new BufferedReader(new FileReader("inventory.csv"))) { // inventory.csv
@@ -73,8 +73,8 @@ public class StoreApp {
                    double precio = Double.parseDouble(tokens[2].trim());
 
 
-                   // create Product object and store in Arraylist
-                   inventory.add(new Product(id, nombre, precio));
+                   // create Producto object and store in Arraylist
+                   inventory.add(new Producto(id, nombre, precio));
                }
            } catch (IOException e) {
                System.out.println("Error al leer el archivo de inventario: " + e.getMessage()); // error reading inventory
@@ -82,21 +82,21 @@ public class StoreApp {
            return inventory;
        }
            // Display all items sorted by name
-           private static void listarTodosLosProductos(ArrayList<Product> inventory) {
+           private static void listarTodosLosProductos(ArrayList<Producto> inventory) {
                System.out.println("\n--- TODOS LOS PRODUCTOS ---");
-               for (Product p : inventory) {
+               for (Producto p : inventory) {
                    System.out.printf("ID: %d | Nombre: %-30s | Precio: $%.2f%n", // ID: %d | Nombre: %-30s | Precio: $%.2f%n
                            p.getId(), p.getNombre(), p.getPrecio());
                }
            }
            // look up specific item by ID
-           private static void buscarProductosPorId(ArrayList<Product> inventory, Scanner scanner) {
+           private static void buscarProductosPorId(ArrayList<Producto> inventory, Scanner scanner) {
                System.out.print("Ingrese el ID del producto: ");
                int id = scanner.nextInt();
                scanner.nextLine();
 
                boolean found = false;
-               for (Product p : inventory) {
+               for (Producto p : inventory) {
                    if (p.getId() == id) {
                        System.out.printf("Encontrado: ID %d - %s cuesta $%.2f%n",
                                p.getId(), p.getNombre(), p.getPrecio());
@@ -109,7 +109,7 @@ public class StoreApp {
                }
            }
            // Filter products between min and max price
-           private static void buscarProductosPorRangoDePrecio(ArrayList<Product> inventory, Scanner scanner) {
+           private static void buscarProductosPorRangoDePrecio(ArrayList<Producto> inventory, Scanner scanner) {
                System.out.print("Ingrese el precio mínimo: "); // enter the min. price
                double min = scanner.nextDouble();
                System.out.print("Ingrese el precio máximo: "); // enter the max price
@@ -118,7 +118,7 @@ public class StoreApp {
 
                System.out.printf("%n--- Productos entre $%.2f y $%.2f ---%n", min, max);
                boolean matched = false;
-               for (Product p : inventory) {
+               for (Producto p : inventory) {
                    if (p.getPrecio() >= min && p.getPrecio() <= max) {
                        System.out.printf("ID: %d | Nombre: %-30s | Precio: $%.2f%n",
                                p.getId(), p.getNombre(), p.getPrecio());
@@ -132,7 +132,7 @@ public class StoreApp {
                }
            }
            // We are now adding a new product at runtime and resorting the list
-           private static void agregarNuevoProducto(ArrayList<Product> inventory, Scanner scanner) {
+           private static void agregarNuevoProducto(ArrayList<Producto> inventory, Scanner scanner) {
                System.out.print("Ingrese ID del producto: ");
                int id = scanner.nextInt();
                scanner.nextLine();
@@ -144,10 +144,10 @@ public class StoreApp {
                double precio = scanner.nextDouble();
                scanner.nextLine();
 
-               inventory.add(new Product(id, nombre, precio));
+               inventory.add(new Producto(id, nombre, precio));
 
                // Keep list sorted alphabetically after adding
-               Collections.sort(inventory, Comparator.comparing(Product::getNombre));
+               Collections.sort(inventory, Comparator.comparing(Producto::getNombre));
                System.out.println("¡Producto agregado existosamente!");
     }
 }
