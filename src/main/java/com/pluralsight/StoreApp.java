@@ -85,7 +85,7 @@ public class StoreApp {
            private static void listarTodosLosProductos(ArrayList<Product> inventory) {
                System.out.println("\n--- TODOS LOS PRODUCTOS ---");
                for (Product p : inventory) {
-                   System.out.printf("ID: %d | Nombre: %-30s | Precio: $%.2f%n",
+                   System.out.printf("ID: %d | Nombre: %-30s | Precio: $%.2f%n", // ID: %d | Nombre: %-30s | Precio: $%.2f%n
                            p.getId(), p.getNombre(), p.getPrecio());
                }
            }
@@ -110,9 +110,9 @@ public class StoreApp {
            }
            // Filter products between min and max price
            private static void buscarProductosPorRangoDePrecio(ArrayList<Product> inventory, Scanner scanner) {
-               System.out.print("Ingrese el precio mínimo: ");
+               System.out.print("Ingrese el precio mínimo: "); // enter the min. price
                double min = scanner.nextDouble();
-               System.out.print("Ingrese el precio máximo: ");
+               System.out.print("Ingrese el precio máximo: "); // enter the max price
                double max = scanner.nextDouble();
                scanner.nextLine();
 
