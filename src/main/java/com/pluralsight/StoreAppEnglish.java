@@ -23,6 +23,7 @@ public class StoreAppEnglish {
         boolean running = true;
 
         while (running) {
+            System.out.println("-----------------------------------------");
             System.out.println("1 - List all products");
             System.out.println("2 - Look up a product by ID");
             System.out.println("3 - Find products within a price range");
@@ -57,7 +58,7 @@ public class StoreAppEnglish {
         ArrayList<Product> inventory = new ArrayList<>();
 
         // try with resources automatically closes the bufferedreader when done
-        try (BufferedReader bufReader = new BufferedReader(new FileReader("inventory.csv"))) {
+        try (BufferedReader bufReader = new BufferedReader(new FileReader("inventory_eng.csv"))) {
             String line;
 
             // read line by line until reaching end (null)

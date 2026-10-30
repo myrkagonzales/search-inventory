@@ -44,7 +44,7 @@ public class StoreAppHashEnglish {
 
     // method to load products from csv into the HashMap
     public static void loadInventory() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("inventory.csv"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("inventory_eng.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] tokens = line.split(Pattern.quote("|"));
